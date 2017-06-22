@@ -31,12 +31,12 @@ node.js and angular-cli must be installed prior to completing the rest of the se
  
 ```javascript
 const firebaseConfig = {
-	apiKey: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-	authDomain: "firenotes-xxxxx.firebaseapp.com",
-	databaseURL: "https://firenotes-xxxxx.firebaseio.com",
-	projectId: "firenotes-xxxxx",
-	storageBucket: "",
-	messagingSenderId: "############"
+  apiKey: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  authDomain: "firenotes-xxxxx.firebaseapp.com",
+  databaseURL: "https://firenotes-xxxxx.firebaseio.com",
+  projectId: "firenotes-xxxxx",
+  storageBucket: "",
+  messagingSenderId: "############"
 };
 ```
  
