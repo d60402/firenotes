@@ -29,16 +29,16 @@ node.js and angular-cli must be installed prior to completing the rest of the se
  4. Fill in the **Project name** field (e.g., 'Firenotes'), select your **Country/region** from the drop-down, and click the **CREATE PROJECT** button.
  5. Click the **Add Firebase to your web app** link on the page, and copy the **config** JSON that is displayed, and paste it as the value of the **firebaseConfig** constant in **app.module.ts** in the project source  e.g.,...
  
-    ```javascript
-    const firebaseConfig = {
-    	apiKey: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-    	authDomain: "firenotes-xxxxx.firebaseapp.com",
-    	databaseURL: "https://firenotes-xxxxx.firebaseio.com",
-    	projectId: "firenotes-xxxxx",
-    	storageBucket: "",
-    	messagingSenderId: "############"
-    };
-    ```
+```javascript
+const firebaseConfig = {
+	apiKey: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+	authDomain: "firenotes-xxxxx.firebaseapp.com",
+	databaseURL: "https://firenotes-xxxxx.firebaseio.com",
+	projectId: "firenotes-xxxxx",
+	storageBucket: "",
+	messagingSenderId: "############"
+};
+```
  
  6. Click the **Authentication** link in the left-hand navigation menu on the Firebase console.
  7. Click the **SIGN-IN METHOD** tab on the Authentication page.
@@ -56,14 +56,14 @@ static readonly URL = "https://firenotes-xxxxx.firebaseio.com/";
  
 ```javascript
 {
-	"rules": {
-	"users": {
-		"$userId": {
-			".read": "$userId === auth.uid",
-			".write": "$userId === auth.uid"   
-		}
-	}
-	}
+  "rules": {
+    "users": {
+      "$userId": {
+        ".read": "$userId === auth.uid",
+        ".write": "$userId === auth.uid"   
+      }
+    }
+  }
 }
 ```
 
