@@ -1,0 +1,51 @@
+<div class="row">
+  <div class="col-xs-12">
+		<h4 *ngIf="isLoading" class="text-center">
+			<span class="glyphicon glyphicon-refresh spinning"></span>  
+			Loading...
+		</h4>
+  <div *ngIf="!isLoading" class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <form (ngSubmit)="onSubmit()" [formGroup]="theForm">
+          <div class="form-group">
+            <label for="email">Title</label>
+            <input 
+              type="text" 
+              id="title" 
+              name="title" 
+              class="form-control" 
+              formControlName="title">
+          </div>
+          <div class="form-group">
+            <label for="content">Note</label>
+            <textarea 
+              id="content" 
+              name="content" 
+              class="form-control" 
+              rows="10"
+              formControlName="content"></textarea>
+          </div>
+         <div class="form-group" *ngIf="note != null">
+           <p class="help-block">Created: {{ note.createDate | date:'short' }}</p>
+           <p class="help-block">Updated: {{ note.updateDate | date:'short' }}</p>
+         </div>
+          <div class="form-actions" style="text-align: center">
+            <button class="btn btn-success" type="submit">Save</button>
+            <button class="btn btn-default" type="button" [routerLink]="['']">Cancel</button>
+            <button class="btn btn-danger" type="button" (click)="onDelete()" *ngIf="this.note">Delete</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+    <div class="alert alert-danger" role="alert" *ngIf="errorMessage != null">
+      <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+      <span class="sr-only">Error:</span>
+      {{ errorMessage }}
+    </div>
+  </div>
+</div>

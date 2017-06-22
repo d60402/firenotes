@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Login below. If you don't have an account, <a routerLink='/signup'><strong>click here to signup</strong></a>!
+      </div>
+      <div class="panel-body">
+        <form (ngSubmit)="onSubmit()" [formGroup]="theForm">
+          <div class="form-group" [ngClass]="{ 'has-error': !theForm.get('email').valid && theForm.get('email').touched }">
+            <label for="email">Email</label>
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              class="form-control" 
+              formControlName="email">
+          </div>
+          <div class="form-group" [ngClass]="{ 'has-error': !theForm.get('password').valid && theForm.get('password').touched}">
+            <label for="password">Password</label>
+            <input 
+              type="password" 
+              id="password" 
+              name="password" 
+              class="form-control" 
+              formControlName="password">
+          </div>
+          <div class="form-actions" style="text-align: center">
+            <button class="btn btn-primary" type="submit" [disabled]="!theForm.valid">Login</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+    <div class="alert alert-danger" role="alert" *ngIf="errorMessage != null">
+      <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+      <span class="sr-only">Error:</span>
+      {{ errorMessage }}
+    </div>
+  </div>
+</div>

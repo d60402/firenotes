@@ -1,0 +1,6 @@
+<div class="list-group">
+  <a class="list-group-item" [routerLink]="['note', note.$key]">
+    <h4 class="list-group-item-heading">{{ note.title }}</h4>
+    <p class="list-group-item-text ellipsize">{{ note.content }}</p>
+  </a>
+</div>

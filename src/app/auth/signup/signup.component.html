@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+    <form (ngSubmit)="onSubmit()" [formGroup]="theForm">
+      <div class="form-group" [ngClass]="{ 'has-error': !theForm.get('email').valid && theForm.get('email').touched }">
+        <label for="email">Email</label>
+        <input 
+          type="email" 
+          id="email" 
+          name="email" 
+          class="form-control" 
+          formControlName="email">
+        <p 
+          class="help-block" 
+          *ngIf="!theForm.get('email').valid && theForm.get('email').touched">Email is not valid.</p>
+      </div>
+      <div class="form-group" [ngClass]="{ 'has-error': !theForm.get('password').valid && theForm.get('password').touched}">
+        <label for="password">Password</label>
+        <input 
+          type="password" 
+          id="password" 
+          name="password" 
+          class="form-control" 
+          formControlName="password">
+        <p 
+          class="help-block" 
+          *ngIf="!theForm.get('password').valid && theForm.get('password').touched">Password must be at least 6 characters long.</p>
+      </div>
+      <div class="form-group" [ngClass]="{ 'has-error': !theForm.get('password2').valid && theForm.get('password2').touched }">
+        <label for="password2">Confirm Password</label>
+        <input 
+        type="password" 
+        id="password2" 
+        name="password2" 
+        class="form-control" 
+        formControlName="password2">
+        <p 
+          class="help-block" 
+          *ngIf="!theForm.get('password2').valid && theForm.get('password2').touched">Passwords do not match.</p>
+      </div>
+      <div class="form-actions" style="text-align: center">
+      <button class="btn btn-primary" type="submit" [disabled]="!theForm.valid" >Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
