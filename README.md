@@ -47,25 +47,25 @@ node.js and angular-cli must be installed prior to completing the rest of the se
  9. Click the **Database** link in the left-hand navigation menu.
  10. Copy the URL that is displayed at the top of the **DATA** tab on the Realtime Database page, and paste it as the value of the **URL** constant in the **data.service.ts** project file. For example...
 
-    ```javascript
-    static readonly URL = "https://firenotes-xxxxx.firebaseio.com/";
-    ``` 
+```javascript
+static readonly URL = "https://firenotes-xxxxx.firebaseio.com/";
+```
 
  11. Click the **RULES** tab on the Realtime Database page.
  12. Paste in the following to the rules editor, and then click the **PUBLISH** button...
  
-    ```javascript
-    {
-      "rules": {
-        "users": {
-          "$userId": {
-         		".read": "$userId === auth.uid",
-        		".write": "$userId === auth.uid"   
-          }
-        }
-      }
-    }
-    ```
+```javascript
+{
+	"rules": {
+	"users": {
+		"$userId": {
+			".read": "$userId === auth.uid",
+			".write": "$userId === auth.uid"   
+		}
+	}
+	}
+}
+```
 
 >The rules above ensure that users can only read their notes and not the notes of other users.
 
