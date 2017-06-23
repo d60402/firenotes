@@ -27,7 +27,8 @@ node.js and angular-cli must be installed prior to completing the rest of the se
  2. Click the **GO TO CONSOLE** link in the page header.
  3. Click the **+ Add project** link on the page.
  4. Fill in the **Project name** field (e.g., 'Firenotes'), select your **Country/region** from the drop-down, and click the **CREATE PROJECT** button.
- 5. Click the **Add Firebase to your web app** link on the page, and copy the **config** JSON that is displayed, and paste it as the value of a **firebaseConfig** member in **environments/environment.ts** in the project source  e.g.,...
+ 5. Click the **Add Firebase to your web app** link on the page, and copy the **config** JSON that is displayed for use in the next step.
+ 6. Create the file **src/environments/environment.ts**, and paste the firebase config JSON along with **production: false** into this file. For example...
  
 ```javascript
 export const environment = {
@@ -42,16 +43,16 @@ export const environment = {
   }
 };
 ```
-> If you plan on doing a production build, also include the firebaseConfig object above in **environments/environment.prod.ts** 
+> If you plan on doing a production build, also add the file **environments/environment.prod.ts** with the same content above except set **production: true**.
  
- 6. Click the **Authentication** link in the left-hand navigation menu on the Firebase console.
- 7. Click the **SIGN-IN METHOD** tab on the Authentication page.
- 8. Click the **Email/Password** provider, then turn on the **Enable** switch, and click the **SAVE** button.
+ 7. Click the **Authentication** link in the left-hand navigation menu on the Firebase console.
+ 8. Click the **SIGN-IN METHOD** tab on the Authentication page.
+ 9. Click the **Email/Password** provider, then turn on the **Enable** switch, and click the **SAVE** button.
  
  > If you decide to support other authentication providers, you must modify the AuthService code to support these mechanisms as well as provide the appropriate UI controls in the Login component.
  
- 9. Click the **RULES** tab on the Realtime Database page.
- 10. Paste in the following to the rules editor, and then click the **PUBLISH** button...
+ 10. Click the **RULES** tab on the Realtime Database page.
+ 11. Paste in the following to the rules editor, and then click the **PUBLISH** button...
  
 ```javascript
 {
