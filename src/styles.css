@@ -3,6 +3,8 @@ html {
   min-height: 100%;
 }
 
+body { padding-top: 70px; }
+
 footer {
   position: absolute;
   bottom: 0;
