@@ -27,4 +27,8 @@ export class HeaderComponent {
   onAbout() {
     this.router.navigate(['/about']);
   }
+
+  onNotesList() {
+    this.router.navigate(['/']);
+  }
 }
