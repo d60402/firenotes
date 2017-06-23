@@ -27,32 +27,31 @@ node.js and angular-cli must be installed prior to completing the rest of the se
  2. Click the **GO TO CONSOLE** link in the page header.
  3. Click the **+ Add project** link on the page.
  4. Fill in the **Project name** field (e.g., 'Firenotes'), select your **Country/region** from the drop-down, and click the **CREATE PROJECT** button.
- 5. Click the **Add Firebase to your web app** link on the page, and copy the **config** JSON that is displayed, and paste it as the value of the **firebaseConfig** constant in **app.module.ts** in the project source  e.g.,...
+ 5. Click the **Add Firebase to your web app** link on the page, and copy the **config** JSON that is displayed, and paste it as the value of a **firebaseConfig** member in **environments/environment.ts** in the project source  e.g.,...
  
 ```javascript
-const firebaseConfig = {
-  apiKey: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-  authDomain: "firenotes-xxxxx.firebaseapp.com",
-  databaseURL: "https://firenotes-xxxxx.firebaseio.com",
-  projectId: "firenotes-xxxxx",
-  storageBucket: "",
-  messagingSenderId: "############"
+export const environment = {
+  production: false,
+  firebaseConfig: {
+    apiKey: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    authDomain: "firenotes-xxxxx.firebaseapp.com",
+    databaseURL: "https://firenotes-xxxxx.firebaseio.com",
+    projectId: "firenotes-xxxxx",
+    storageBucket: "firenotes-xxxxx.appspot.com",
+    messagingSenderId: "xxxxxxxxxxxx"
+  }
 };
 ```
+> If you plan on doing a production build, also include the firebaseConfig object above in **environments/environment.prod.ts** 
  
  6. Click the **Authentication** link in the left-hand navigation menu on the Firebase console.
  7. Click the **SIGN-IN METHOD** tab on the Authentication page.
  8. Click the **Email/Password** provider, then turn on the **Enable** switch, and click the **SAVE** button.
+ 
  > If you decide to support other authentication providers, you must modify the AuthService code to support these mechanisms as well as provide the appropriate UI controls in the Login component.
- 9. Click the **Database** link in the left-hand navigation menu.
- 10. Copy the URL that is displayed at the top of the **DATA** tab on the Realtime Database page, and paste it as the value of the **URL** constant in the **data.service.ts** project file. For example...
-
-```javascript
-static readonly URL = "https://firenotes-xxxxx.firebaseio.com/";
-```
-
- 11. Click the **RULES** tab on the Realtime Database page.
- 12. Paste in the following to the rules editor, and then click the **PUBLISH** button...
+ 
+ 9. Click the **RULES** tab on the Realtime Database page.
+ 10. Paste in the following to the rules editor, and then click the **PUBLISH** button...
  
 ```javascript
 {

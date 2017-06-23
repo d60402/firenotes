@@ -3,11 +3,12 @@ import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable }
 
 import { Note } from '../model/note.model';
 import { AuthService } from '../auth/auth.service';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class DataService{
 
-  static readonly URL = "https://firenotes-xxxxx.firebaseio.com/";
+  static readonly URL = environment.firebaseConfig.databaseURL;
   notes: FirebaseListObservable<Note[]>;  
 
   constructor(

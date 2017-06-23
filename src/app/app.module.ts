@@ -19,15 +19,7 @@ import { DataService } from './service/data.service';
 import { NoteListItemComponent } from './note-list-item/note-list-item.component';
 import { NoteDetailComponent } from './note-detail/note-detail.component';
 import { AboutComponent } from './about/about.component';
-
-const firebaseConfig = {
-    apiKey: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-    authDomain: "firenotes-xxxxx.firebaseapp.com",
-    databaseURL: "https://firenotes-xxxxx.firebaseio.com",
-    projectId: "firenotes-xxxxx",
-    storageBucket: "",
-    messagingSenderId: "xxxxxxxxxxxx"
-  };
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -46,7 +38,7 @@ const firebaseConfig = {
     HttpModule,
     RouterModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(firebaseConfig)
+    AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
   providers: [AuthService, AuthGuard, DataService, AngularFireAuth, AngularFireDatabase],
   bootstrap: [AppComponent]
