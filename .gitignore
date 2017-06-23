@@ -46,4 +46,4 @@ firebase.json
 .firebaserc
 
 # Environments
-/environments
+/src/environments
